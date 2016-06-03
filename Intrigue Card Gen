@@ -1,0 +1,92 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void cardnames(int intrigue);
+int main(void)
+{
+    int intriguecard[9], intrigue, deal=1;
+
+    srand(time(NULL));
+    for(deal=0; deal<1; deal++) //Generates 1 of each card for a player, and prevents cards from being dealt twice.
+    {                     
+           intriguegen:
+           intrigue = rand() % 24 + 1;
+           if(intriguecard[intrigue]==1)
+                                    goto intriguegen;
+           else
+                                    intriguecard[intrigue] = 1;
+           
+                                    
+           cardnames(intrigue);       
+    }
+    
+    system("pause");
+    return 0;
+}
+
+void cardnames(int intrigue)
+{
+     int clockcounter=0;
+     
+     if(intrigue==1)
+     printf("Play when one player has shown another player a card: You get to see the card.\n");
+     else if(intrigue==2)
+     printf("Play instead of answering a Rumor: The Rumor stays unanswered.\n");
+     else if(intrigue==3)
+     printf("Play at the end of your turn: Take another turn.\n");
+     else if(intrigue==4)
+     printf("Play when one player has shown another player a card: You get to see the card.\n");
+     else if(intrigue==5)
+     printf("Play at the end of your turn: Take another turn.\n");
+     else if(intrigue==6)
+     printf("Play at the end of your turn: Take another turn.\n");
+     else if(intrigue==7){
+     printf("Clock.\n");
+     clockcounter++;}
+     else if(intrigue==8){
+     printf("Clock.\n");
+     clockcounter++;}
+     else if(intrigue==9)
+     printf("Play when starting a turn in a room: You may stay in that room and start a Rumor.\n");
+     else if(intrigue==10)
+     printf("Play at the end of your turn: The player on your right must show you a card.\n");
+     else if(intrigue==11)
+     printf("Play instead of answering a Rumor: The Rumor stays unanswered.\n");
+     else if(intrigue==12){
+     printf("Clock.\n");
+     clockcounter++;}
+     else if(intrigue==13)
+     printf("Play at the end of your turn: Move anyone back to their start space.\n");
+     else if(intrigue==14){
+     printf("Clock.\n");
+     clockcounter++;}
+     else if(intrigue==15)
+     printf("Play at the end of your turn: Move anyone back to their start space.\n");
+     else if(intrigue==16){
+     printf("Clock.\n");
+     clockcounter++;}
+     else if(intrigue==17)
+     printf("Play after you roll the dice but before you move: Add 6 to your dice roll.\n");
+     else if(intrigue==18)
+     printf("Play instead of rolling the dice: Move anywhere.\n");
+     else if(intrigue==18){
+     printf("Clock.\n");
+     clockcounter++;}
+     else if(intrigue==19)
+     printf("Play at the end of your turn: Take another turn.\n");
+     else if(intrigue==20)
+     printf("Play after you roll the dice but before you move: Add 6 to your dice roll.\n");
+     else if(intrigue==21)
+     printf("Play instead of rolling the dice: Move anywhere.\n");
+     else if(intrigue==22){
+     printf("Clock.\n");
+     clockcounter++;}
+     else if(intrigue==23)
+     printf("Play when one player has shown another player a card: You get to see the card.\n");
+     else if(intrigue==24){
+     printf("Clock.\n");
+     clockcounter++;}
+     if(clockcounter==8)
+     printf("You lose.");
+}
